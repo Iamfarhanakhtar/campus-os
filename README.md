@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # CampusOS v1.0 — Phase 0 (Foundation)
 
 > **CampusOS** is a production-quality, AI-powered College Operating System designed to help students manage their timetable, attendance, academic calendar, tasks, study planner, projects, goals, notes, and career trajectory.
@@ -160,3 +161,53 @@ npm run build
 ---
 
 CampusOS • Designed with precision for students.
+=======
+# 🎓 CampusOS
+
+> Organize. Learn. Grow.
+
+CampusOS is a modern AI-powered College Operating System designed to help students manage their academics, attendance, projects, study plans, and career growth through a beautiful and intelligent dashboard.
+
+---
+
+## ✨ Features
+
+- 📅 Smart Timetable
+- 📊 Attendance Tracker
+- 📝 Daily Planner
+- 🎯 Goals
+- 📚 Study Hub
+- 💻 Project Tracker
+- 📈 Analytics
+- 🤖 AI Coach
+- 📂 Notes
+- 🌙 Dark Mode
+
+---
+
+## 🛠 Tech Stack
+
+- React
+- TypeScript
+- Vite
+- Tailwind CSS
+- shadcn/ui
+- Supabase
+- TanStack Query
+- React Router
+- Framer Motion
+
+---
+
+## 🚀 Project Status
+
+Currently under active development.
+
+Version: v0.1.0
+
+---
+
+## 📄 License
+
+MIT License
+>>>>>>> ef59a2f5813703b2b465958c1a9358f05ea1204c
