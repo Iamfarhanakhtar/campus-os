@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 80" fill="none">
+  <rect x="10" y="10" width="60" height="60" rx="16" fill="url(#brandGrad)" />
+  <text x="40" y="48" dominant-baseline="middle" text-anchor="middle" fill="white" font-family="sans-serif" font-weight="800" font-size="36">C</text>
+  <text x="88" y="48" fill="#FAFAFA" font-family="sans-serif" font-weight="700" font-size="30">Campus<tspan fill="#7C5CFC">OS</tspan></text>
+  <defs>
+    <linearGradient id="brandGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#7C5CFC" />
+      <stop offset="100%" stop-color="#5824E3" />
+    </linearGradient>
+  </defs>
+</svg>
