@@ -1,213 +1,361 @@
-<<<<<<< HEAD
-# CampusOS v1.0 — Phase 0 (Foundation)
+# 🎓 CampusOS
 
-> **CampusOS** is a production-quality, AI-powered College Operating System designed to help students manage their timetable, attendance, academic calendar, tasks, study planner, projects, goals, notes, and career trajectory.
+> **An AI-powered Student Operating System designed to centralize academic life into one intelligent platform.**
 
----
+CampusOS is a modern productivity platform built for university students. It combines timetable management, attendance intelligence, academic planning, analytics, and AI-powered insights into one seamless experience.
 
-## ⚡ Tech Stack
-
-- **Framework**: React 18 + TypeScript + Vite
-- **Styling**: Tailwind CSS + Custom Design System Tokens
-- **Icons**: Lucide React
-- **Animations**: Framer Motion
-- **Routing**: React Router DOM (v6) with Code Splitting (`React.lazy`)
-- **State & Data Fetching**: TanStack Query (v5) + React Context
-- **Backend Architecture**: Supabase PostgreSQL Client Shell
-- **Forms & Validation**: React Hook Form + Zod
-- **Code Quality**: ESLint, Prettier
+Designed with a premium user experience inspired by **Linear**, **Apple**, **Arc Browser**, **Raycast**, and **Vercel Dashboard**.
 
 ---
 
-## 🎨 Design Language
+# 🚀 Version
 
-Inspired by **Linear**, **Raycast**, **Arc Browser**, **Apple**, and **Vercel Dashboard**.
-
-- **Theme Mode**: Dark Mode First (Default)
-- **Primary Accent**: `#7C5CFC`
-- **Background**: `#09090B`
-- **Card Surface**: `#18181B`
-- **Borders**: `#27272A`
-- **Status Indicators**: `#22C55E` (Success), `#F59E0B` (Warning), `#EF4444` (Danger)
-- **Aesthetic**: Minimalist borders, glassmorphic panels (`backdrop-blur-xl`), crisp typography (Inter & Plus Jakarta Sans), keyboard-first navigation with Command Palette (`⌘K`).
+**Current Release:** `v1.0.0`
 
 ---
 
-## 📁 Scalable Directory Architecture
+# ✨ Features
+
+## 🏠 Dashboard
+
+- Personalized student dashboard
+- Daily academic overview
+- Quick statistics
+- Smart widgets
+- Semester insights
+
+---
+
+## 📅 Smart Timetable
+
+- Weekly timetable
+- Today's schedule
+- Current lecture detection
+- Next lecture preview
+- Room information
+- Teacher information
+- Time-aware timetable engine
+
+---
+
+## 📊 Attendance Intelligence
+
+A complete attendance management system.
+
+### Features
+
+- Overall attendance tracking
+- Subject-wise attendance
+- Safe bunk calculator
+- Attendance threshold monitoring
+- Attendance insights
+- Attendance health indicators
+
+---
+
+## 🧠 Subject Intelligence
+
+Every subject includes:
+
+- Attendance percentage
+- Classes attended
+- Classes conducted
+- Safe bunks
+- Required classes
+- Smart recommendations
+- Status indicators
+
+---
+
+## 🔮 Attendance Prediction Engine
+
+Predict future attendance using AI-inspired forecasting.
+
+Includes:
+
+- Current attendance
+- Next week forecast
+- End semester prediction
+- Confidence score
+- Semester health
+- AI summary
+- Prediction timeline
+- Attendance projection
+
+---
+
+## 🎯 What-If Attendance Simulator
+
+Interactive attendance simulator.
+
+Users can:
+
+- Simulate missed lectures
+- View attendance impact
+- Calculate safe bunks
+- Analyze semester risk
+- Compare scenarios
+- Receive dynamic AI recommendations
+
+---
+
+## 📚 Subjects
+
+- Subject overview
+- Faculty information
+- Credits
+- Course details
+- Attendance
+- Schedule
+- Semester organization
+
+---
+
+## 🗂 Centralized Academic Data
+
+CampusOS uses a centralized semester data architecture.
+
+Every module shares the same source of truth.
+
+Updating one subject automatically updates:
+
+- Dashboard
+- Timetable
+- Attendance
+- Prediction Engine
+- Subject Intelligence
+- Future modules
+
+---
+
+# 🎨 Design Language
+
+Inspired by
+
+- Apple
+- Linear
+- Raycast
+- Arc Browser
+- Vercel Dashboard
+
+Features
+
+- Dark Mode First
+- Glassmorphism
+- Smooth animations
+- Modern typography
+- Responsive layout
+- Accessible interface
+- Premium micro-interactions
+
+---
+
+# ⚙️ Tech Stack
+
+### Frontend
+
+- React 18
+- TypeScript
+- Vite
+
+### Styling
+
+- Tailwind CSS
+- shadcn/ui
+- CSS Variables
+
+### Animation
+
+- Framer Motion
+
+### Routing
+
+- React Router DOM
+
+### Data
+
+- TanStack Query
+- React Context API
+
+### Backend (Architecture Ready)
+
+- Supabase
+- PostgreSQL
+
+### Forms
+
+- React Hook Form
+- Zod
+
+### Icons
+
+- Lucide React
+
+---
+
+# 📁 Project Structure
 
 ```
-CampusOS/
-├── database/                 # SQL schemas, seed data, and migrations
-│   ├── schema.sql
-│   ├── seed.sql
-│   └── migrations/
-├── design/                   # Design assets, wireframes, logo, and favicons
-│   ├── favicon/
-│   ├── logo/
-│   ├── mockups/
-│   ├── screenshots/
-│   └── wireframes/
-├── docs/                     # Comprehensive architecture documentation
-│   ├── decisions/
-│   ├── design/
-│   ├── development/
-│   ├── product/
-│   └── technical/
-├── src/
-│   ├── app/                  # App providers, router configuration, entry wrapper
-│   ├── assets/               # Fonts, icons, images, and illustrations
-│   ├── components/
-│   │   ├── common/           # Application components (PageHeader, StatsCard, CommandPalette)
-│   │   ├── layout/           # Header, Collapsible Sidebar, Shell, ProtectedRoute
-│   │   └── ui/               # Reusable UI primitives (Button, Card, Dialog, Input, etc.)
-│   ├── config/               # Environment, Supabase client, and QueryClient configuration
-│   ├── constants/            # Centralized routes, navigation groups, colors, theme
-│   ├── contexts/             # ThemeContext, SidebarContext, AuthContext
-│   ├── features/             # Feature-First self-contained modules
-│   │   ├── ai-coach/
-│   │   ├── analytics/
-│   │   ├── attendance/
-│   │   ├── auth/
-│   │   ├── calendar/
-│   │   ├── dashboard/
-│   │   ├── goals/
-│   │   ├── notes/
-│   │   ├── planner/
-│   │   ├── profile/
-│   │   ├── projects/
-│   │   ├── settings/
-│   │   ├── study-hub/
-│   │   ├── subjects/
-│   │   └── timetable/
-│   ├── hooks/                # Global React hooks
-│   ├── pages/                # Lazy export bindings for router
-│   ├── services/             # Supabase & API contract abstractions
-│   ├── styles/               # globals.css & Tailwind theme layers
-│   ├── test/                 # Test setup definitions
-│   ├── types/                # Database & entity TypeScript schemas
-│   └── utils/                # Utility helpers (cn, date, formatters)
-├── index.html
-├── package.json
-├── tailwind.config.js
-├── tsconfig.json
-└── vite.config.ts
+CampusOS
+│
+├── src
+│   ├── app
+│   ├── assets
+│   ├── components
+│   ├── config
+│   ├── constants
+│   ├── contexts
+│   ├── features
+│   │
+│   ├── attendance
+│   ├── dashboard
+│   ├── timetable
+│   ├── subjects
+│   ├── analytics
+│   ├── calendar
+│   ├── planner
+│   ├── ai-coach
+│   ├── notes
+│   └── settings
+│
+├── public
+├── docs
+├── database
+└── package.json
 ```
 
 ---
 
-## 🚀 Getting Started
+# 🚀 Getting Started
 
-### Prerequisites
-- **Node.js**: v18.0.0 or higher
-- **npm**: v9.0.0 or higher
-
-### Installation
+## Clone
 
 ```bash
-# Clone the repository
-git clone https://github.com/campus-os/campus-os.git
-cd CampusOS
+git clone https://github.com/Iamfarhanakhtar/campus-os.git
 
-# Install dependencies
+cd campus-os
+```
+
+---
+
+## Install
+
+```bash
 npm install
 ```
 
-### Development Server
+---
+
+## Run Development Server
 
 ```bash
-# Start Vite development server
 npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) in your browser.
-
 ---
 
-## 🛠️ Development Workflow
+## Production Build
 
 ```bash
-# Typecheck with TypeScript
-npx tsc --noEmit
-
-# Run ESLint validation
-npm run lint
-
-# Format codebase with Prettier
-npm run format
-
-# Production Build
 npm run build
 ```
 
 ---
 
-## 🗺️ Product Roadmap
+# 📸 Preview
 
-- [x] **Phase 0**: Scalable Architecture, Design System, Collapsible Sidebar, Command Palette (`⌘K`), 15+ Feature Pages, Database Schemas & Documentation.
-- [ ] **Phase 1**: Interactive Timetable Engine, Attendance Margin Calculator, Academic Calendar Sync.
-- [ ] **Phase 2**: AI Study Coach, Pomodoro Study Hub, Flashcard Generator, GitHub Sync.
-- [ ] **Phase 3**: Mobile App PWA Sync, Multi-University Canvas/Blackboard Syllabus Parsers.
+> Screenshots coming soon.
 
----
-
-## 📄 Documentation Index
-
-- [Product Vision](file:///Users/farhan/Desktop/CampusOS/docs/product/vision.md)
-- [Design System Specs](file:///Users/farhan/Desktop/CampusOS/docs/design/design-system.md)
-- [Technical Architecture](file:///Users/farhan/Desktop/CampusOS/docs/technical/architecture.md)
-- [Database Models](file:///Users/farhan/Desktop/CampusOS/docs/technical/database.md)
-- [ADR 0001: Feature-First Architecture](file:///Users/farhan/Desktop/CampusOS/docs/decisions/0001-feature-first-architecture.md)
+- Dashboard
+- Timetable
+- Attendance Intelligence
+- Prediction Engine
+- What-If Simulator
+- Subjects
 
 ---
 
-CampusOS • Designed with precision for students.
-=======
-# 🎓 CampusOS
+# 🌐 Live Demo
 
-> Organize. Learn. Grow.
+Coming Soon
 
-CampusOS is a modern AI-powered College Operating System designed to help students manage their academics, attendance, projects, study plans, and career growth through a beautiful and intelligent dashboard.
+(Vercel Deployment)
 
 ---
 
-## ✨ Features
+# 🛣️ Roadmap
 
-- 📅 Smart Timetable
-- 📊 Attendance Tracker
-- 📝 Daily Planner
-- 🎯 Goals
-- 📚 Study Hub
-- 💻 Project Tracker
-- 📈 Analytics
-- 🤖 AI Coach
-- 📂 Notes
-- 🌙 Dark Mode
+## ✅ Version 1.0
 
----
-
-## 🛠 Tech Stack
-
-- React
-- TypeScript
-- Vite
-- Tailwind CSS
-- shadcn/ui
-- Supabase
-- TanStack Query
-- React Router
-- Framer Motion
+- Dashboard
+- Timetable Engine
+- Subject Management
+- Attendance Intelligence
+- Subject Intelligence
+- Attendance Prediction Engine
+- What-If Attendance Simulator
+- Centralized Semester Data
 
 ---
 
-## 🚀 Project Status
+## 🚧 Version 2.0
 
-Currently under active development.
-
-Version: v0.1.0
+- AI Study Coach
+- Assignment Manager
+- Academic Calendar
+- Notes Hub
+- Study Planner
+- Analytics Dashboard
+- SGPA / CGPA Calculator
+- Smart Notifications
+- AI Copilot
 
 ---
 
-## 📄 License
+## 🔮 Future Vision
 
-MIT License
->>>>>>> ef59a2f5813703b2b465958c1a9358f05ea1204c
+- ERP Integration
+- OCR Attendance Scanner
+- Mobile App
+- Offline Mode
+- Calendar Sync
+- Google Classroom Integration
+- GitHub Student Integration
+- Resume Tracker
+- Internship Dashboard
+
+---
+
+# 🤝 Contributing
+
+Contributions, feature requests, and suggestions are welcome.
+
+Feel free to open an issue or submit a pull request.
+
+---
+
+# 📄 License
+
+This project is licensed under the MIT License.
+
+---
+
+# 👨‍💻 Developer
+
+**Farhan**
+
+B.Tech CSE (AI & ML)
+
+Building an AI-powered operating system for students.
+
+---
+
+## ⭐ Support
+
+If you like this project, consider giving it a ⭐ on GitHub.
+
+It motivates future development and helps others discover CampusOS.
+
+---
+
+Made with ❤️ using React, TypeScript and lots of coffee.
