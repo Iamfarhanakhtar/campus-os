@@ -1,8 +1,9 @@
 import React, { createContext, useContext, useState, useEffect, useMemo, useCallback } from 'react';
-import { Student, SemesterSettings, Subject, Faculty, Assignment, Exam, AcademicEvent } from '../../models';
+import { Student, SemesterSettings, Subject, Faculty, Assignment, Exam, AcademicEvent, AcademicPreferences } from '../../models';
 import {
   DEMO_STUDENT,
   DEMO_SEMESTER_SETTINGS,
+  DEMO_ACADEMIC_PREFERENCES,
   DEMO_SUBJECTS,
   DEMO_FACULTY,
   DEMO_ASSIGNMENTS,
@@ -15,6 +16,8 @@ export interface AcademicEngineContextType {
   updateStudent: (partial: Partial<Student>) => void;
   semesterSettings: SemesterSettings;
   updateSemesterSettings: (partial: Partial<SemesterSettings>) => void;
+  academicPreferences: AcademicPreferences;
+  updateAcademicPreferences: (partial: Partial<AcademicPreferences>) => void;
   subjects: Subject[];
   addSubject: (subject: Subject) => void;
   updateSubject: (id: string, partial: Partial<Subject>) => void;
@@ -30,17 +33,22 @@ const AcademicEngineContext = createContext<AcademicEngineContextType | undefine
 
 export const AcademicEngineProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [student, setStudent] = useState<Student>(() => {
-    const saved = localStorage.getItem('campusos_academic_student');
+    const saved = localStorage.getItem('campusos_academic_student_v3');
     return saved ? JSON.parse(saved) : DEMO_STUDENT;
   });
 
   const [semesterSettings, setSemesterSettings] = useState<SemesterSettings>(() => {
-    const saved = localStorage.getItem('campusos_academic_semester');
+    const saved = localStorage.getItem('campusos_academic_semester_v3');
     return saved ? JSON.parse(saved) : DEMO_SEMESTER_SETTINGS;
   });
 
+  const [academicPreferences, setAcademicPreferences] = useState<AcademicPreferences>(() => {
+    const saved = localStorage.getItem('campusos_academic_preferences_v3');
+    return saved ? JSON.parse(saved) : DEMO_ACADEMIC_PREFERENCES;
+  });
+
   const [workspaceName, setWorkspaceName] = useState<string>(() => {
-    const saved = localStorage.getItem('campusos_workspace_name');
+    const saved = localStorage.getItem('campusos_workspace_name_v3');
     return saved || 'Farhan Workspace';
   });
 
@@ -51,12 +59,16 @@ export const AcademicEngineProvider: React.FC<{ children: React.ReactNode }> = (
   const [holidays] = useState<AcademicEvent[]>(DEMO_HOLIDAYS);
 
   useEffect(() => {
-    localStorage.setItem('campusos_academic_student', JSON.stringify(student));
+    localStorage.setItem('campusos_academic_student_v3', JSON.stringify(student));
   }, [student]);
 
   useEffect(() => {
-    localStorage.setItem('campusos_academic_semester', JSON.stringify(semesterSettings));
+    localStorage.setItem('campusos_academic_semester_v3', JSON.stringify(semesterSettings));
   }, [semesterSettings]);
+
+  useEffect(() => {
+    localStorage.setItem('campusos_academic_preferences_v3', JSON.stringify(academicPreferences));
+  }, [academicPreferences]);
 
   useEffect(() => {
     localStorage.setItem('campusos_workspace_name', workspaceName);
@@ -68,6 +80,10 @@ export const AcademicEngineProvider: React.FC<{ children: React.ReactNode }> = (
 
   const updateSemesterSettings = useCallback((partial: Partial<SemesterSettings>) => {
     setSemesterSettings((prev) => ({ ...prev, ...partial, updated_at: new Date().toISOString() }));
+  }, []);
+
+  const updateAcademicPreferences = useCallback((partial: Partial<AcademicPreferences>) => {
+    setAcademicPreferences((prev) => ({ ...prev, ...partial, updated_at: new Date().toISOString() }));
   }, []);
 
   const updateWorkspaceName = useCallback((name: string) => {
@@ -88,6 +104,8 @@ export const AcademicEngineProvider: React.FC<{ children: React.ReactNode }> = (
       updateStudent,
       semesterSettings,
       updateSemesterSettings,
+      academicPreferences,
+      updateAcademicPreferences,
       subjects,
       addSubject,
       updateSubject,
@@ -103,6 +121,8 @@ export const AcademicEngineProvider: React.FC<{ children: React.ReactNode }> = (
       updateStudent,
       semesterSettings,
       updateSemesterSettings,
+      academicPreferences,
+      updateAcademicPreferences,
       subjects,
       addSubject,
       updateSubject,

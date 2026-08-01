@@ -254,10 +254,10 @@ export const FocusHero: React.FC<FocusHeroProps> = React.memo(({
               <Sparkles className="mr-1.5 h-3.5 w-3.5" /> WEEKEND MODE
             </Badge>
             <h2 className="text-lg font-bold text-white tracking-tight pt-1">
-              Enjoy your weekend, {studentName}!
+              No academic lectures today, {studentName}
             </h2>
-            <p className="text-xs text-zinc-400 font-mono">
-              Next academic lecture scheduled for Monday at {tomorrowFirstClass !== '--:--' ? TimetableService.formatTime12(tomorrowFirstClass) : '09:00 AM'}.
+            <p className="text-xs text-zinc-300 font-mono">
+              Semester 3 begins on Monday, 3 August 2026 at 09:10 AM in Room H605.
             </p>
           </div>
 

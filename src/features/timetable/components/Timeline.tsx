@@ -80,8 +80,8 @@ export const Timeline: React.FC<TimelineProps> = React.memo(({
           <CalendarDays className="h-6 w-6 text-[#7C5CFC]" />
         </div>
         <h4 className="text-sm font-bold text-white">No Classes Scheduled for {day}</h4>
-        <p className="text-xs text-zinc-400 mt-1 max-w-xs">
-          Your schedule is completely clear for this day. Enjoy your free time or add a lecture slot.
+        <p className="text-xs text-zinc-300 mt-1 max-w-sm">
+          Semester 3 begins on Monday, 3 August 2026 at 09:10 AM in Room H605.
         </p>
       </div>
     );

@@ -263,22 +263,23 @@ export const TodayHero: React.FC<TodayHeroProps> = React.memo(({
           <div className="space-y-1">
             <div className="flex items-center gap-2">
               <Badge variant="default" className="py-1 px-3 text-xs">
-                <Sparkles className="mr-1.5 h-3.5 w-3.5" /> WEEKEND MODE
+                <Sparkles className="mr-1.5 h-3.5 w-3.5" /> PRE-SEMESTER MODE
               </Badge>
             </div>
             <h2 className="text-lg font-bold text-white tracking-tight pt-1">
-              Enjoy your weekend, {studentName}!
+              No academic lectures today, {studentName}
             </h2>
-            <p className="text-xs text-zinc-400 font-mono">
-              Your next lecture is Monday at {tomorrowFirstClass !== '--:--' ? TimetableService.formatTime12(tomorrowFirstClass) : '09:00 AM'}.
+            <p className="text-xs text-zinc-300 font-mono">
+              Semester 3 begins on Monday, 3 August 2026 at 09:10 AM in Room H605.
             </p>
           </div>
-          <button
-            onClick={onAddLecture}
-            className="text-xs font-semibold text-[#7C5CFC] bg-[#7C5CFC]/10 px-3.5 py-2 rounded-xl border border-[#7C5CFC]/30 hover:bg-[#7C5CFC]/20 transition-colors shrink-0"
-          >
-            + Add Lecture Slot
-          </button>
+          <div className="flex items-center gap-2 bg-zinc-900/80 px-4 py-3 rounded-xl border border-zinc-800 shrink-0">
+            <Moon className="h-4 w-4 text-[#7C5CFC]" />
+            <div className="text-xs">
+              <p className="text-zinc-400 text-[10px] uppercase font-semibold">Opening Day (Monday)</p>
+              <p className="font-bold text-white font-mono">Starts at 09:10 AM</p>
+            </div>
+          </div>
         </CardContent>
       </Card>
     );

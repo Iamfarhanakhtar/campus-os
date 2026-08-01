@@ -1,7 +1,6 @@
 import React, { createContext, useContext } from 'react';
 import { Student, AcademicPreferences, SemesterSettings } from '../types';
 import { useAcademicEngine } from '../engines/academic/AcademicEngine';
-import { useAttendanceEngine } from '../engines/attendance/AttendanceEngine';
 
 export interface AuthContextType {
   user: { id: string; email: string } | null;
@@ -31,9 +30,9 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     updateSemesterSettings,
     workspaceName,
     updateWorkspaceName,
+    academicPreferences,
+    updateAcademicPreferences,
   } = useAcademicEngine();
-
-  const { preferences, updatePreferences } = useAttendanceEngine();
 
   const updateWorkspace = (ws: Partial<{ id: string; name: string }>) => {
     if (ws.name) {
@@ -56,8 +55,8 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
         updateWorkspace,
         workspaceName,
         updateWorkspaceName,
-        academicPreferences: preferences,
-        updateAcademicPreferences: updatePreferences,
+        academicPreferences,
+        updateAcademicPreferences,
         semesterSettings,
         updateSemesterSettings,
         isAuthenticated: true,

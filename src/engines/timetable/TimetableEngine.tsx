@@ -57,12 +57,12 @@ export const TimetableEngineProvider: React.FC<{ children: React.ReactNode }> = 
   const [activeDay, setActiveDay] = useState<DayOfWeek>(() => currentDay);
 
   const [lectures, setLectures] = useState<Lecture[]>(() => {
-    const saved = localStorage.getItem('campusos_lectures_v2');
+    const saved = localStorage.getItem('campusos_lectures_v3');
     return saved ? JSON.parse(saved) : DEMO_LECTURES;
   });
 
   useEffect(() => {
-    localStorage.setItem('campusos_lectures_v2', JSON.stringify(lectures));
+    localStorage.setItem('campusos_lectures_v3', JSON.stringify(lectures));
   }, [lectures]);
 
   const addLecture = useCallback((lectureData: Omit<Lecture, 'id' | 'status'>) => {
