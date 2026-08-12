@@ -286,38 +286,50 @@ Coming Soon
 # 🛣️ Roadmap
 
 ## ✅ Version 1.0
-
 - Dashboard
-- Timetable Engine
-- Subject Management
-- Attendance Intelligence
-- Subject Intelligence
-- Attendance Prediction Engine
-- What-If Attendance Simulator
-- Centralized Semester Data
+- Timetable
+- Attendance
+- Subjects
 
 ---
 
-## 🚧 Version 2.0
+## ✅ Version 1.1
+- Study Hub
+- Focus Session Engine
+- Study Workspace
+- CampusOS Intelligence
 
-- AI Study Coach
-- Assignment Manager
-- Academic Calendar
+---
+
+## ✅ Version 1.2
+- Core Productivity Complete
+
+---
+
+## 🚀 Version 1.3
+- CampusOS AI Coach (Context-aware AI across the platform)
+
+---
+
+## 📊 Version 1.4
+- Analytics & Productivity Insights
+
+---
+
+## 🔒 Version 2.0
+- Authentication
+- Supabase
+- Cloud Sync
+- Real AI
+
+---
+
+## 🔮 Version 2.1
+- Knowledge Base
 - Notes Hub
-- Study Planner
-- Analytics Dashboard
-- SGPA / CGPA Calculator
-- Smart Notifications
-- AI Copilot
-
----
-
-## 🔮 Future Vision
-
-- ERP Integration
-- OCR Attendance Scanner
-- Mobile App
-- Offline Mode
+- Assignment Intelligence
+- Document Intelligence
+- Semantic Search
 - Calendar Sync
 - Google Classroom Integration
 - GitHub Student Integration

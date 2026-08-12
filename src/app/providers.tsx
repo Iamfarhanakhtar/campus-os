@@ -10,6 +10,7 @@ import { TimetableEngineProvider } from '../engines/timetable/TimetableEngine';
 import { AnalyticsEngineProvider } from '../engines/analytics/AnalyticsEngine';
 import { AIEngineProvider } from '../engines/ai/AIEngine';
 import { AuthProvider } from '../contexts/AuthContext';
+import { NotificationProvider } from '../features/notifications/context/NotificationContext';
 
 export const AppProviders: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   return (
@@ -22,7 +23,9 @@ export const AppProviders: React.FC<{ children: React.ReactNode }> = ({ children
                 <AnalyticsEngineProvider>
                   <AIEngineProvider>
                     <AuthProvider>
-                      <SidebarProvider>{children}</SidebarProvider>
+                      <NotificationProvider>
+                        <SidebarProvider>{children}</SidebarProvider>
+                      </NotificationProvider>
                     </AuthProvider>
                   </AIEngineProvider>
                 </AnalyticsEngineProvider>

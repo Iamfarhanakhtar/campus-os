@@ -54,6 +54,11 @@ export const NAVIGATION_GROUPS: NavGroup[] = [
         icon: CheckSquare,
       },
       {
+        title: 'Assignments',
+        href: ROUTES.ASSIGNMENTS,
+        icon: CheckSquare,
+      },
+      {
         title: 'Subjects',
         href: ROUTES.SUBJECTS,
         icon: BookOpen,

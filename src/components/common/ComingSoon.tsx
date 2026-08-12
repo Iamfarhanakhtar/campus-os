@@ -27,7 +27,7 @@ export const ComingSoon: React.FC<ComingSoonProps> = ({
               <Sparkles className="mr-1.5 h-3.5 w-3.5" /> Architecture Ready
             </Badge>
             <Badge variant="outline" className="text-zinc-400">
-              Phase 1 Roadmap
+              Future Platform Capability
             </Badge>
           </div>
 

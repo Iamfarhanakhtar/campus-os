@@ -13,11 +13,14 @@ const ForgotPasswordPage = lazy(() => import('../features/auth/pages/ForgotPassw
 const DashboardPage = lazy(() => import('../features/dashboard/pages/DashboardPage').then(m => ({ default: m.DashboardPage })));
 const TimetablePage = lazy(() => import('../features/timetable/pages/TimetablePage').then(m => ({ default: m.TimetablePage })));
 const AttendancePage = lazy(() => import('../features/attendance/pages/AttendancePage').then(m => ({ default: m.AttendancePage })));
+const AssignmentsPage = lazy(() => import('../features/assignments/pages/AssignmentsPage').then(m => ({ default: m.AssignmentsPage })));
 const PlannerPage = lazy(() => import('../features/planner/pages/PlannerPage').then(m => ({ default: m.PlannerPage })));
 const CalendarPage = lazy(() => import('../features/calendar/pages/CalendarPage').then(m => ({ default: m.CalendarPage })));
 const SubjectsPage = lazy(() => import('../features/subjects/pages/SubjectsPage').then(m => ({ default: m.SubjectsPage })));
 const GoalsPage = lazy(() => import('../features/goals/pages/GoalsPage').then(m => ({ default: m.GoalsPage })));
 const StudyHubPage = lazy(() => import('../features/study-hub/pages/StudyHubPage').then(m => ({ default: m.StudyHubPage })));
+const FocusWorkspacePage = lazy(() => import('../features/study-hub/pages/FocusWorkspacePage').then(m => ({ default: m.FocusWorkspacePage })));
+const SubjectWorkspacePage = lazy(() => import('../features/study-workspace/pages/SubjectWorkspacePage').then(m => ({ default: m.SubjectWorkspacePage })));
 const ProjectsPage = lazy(() => import('../features/projects/pages/ProjectsPage').then(m => ({ default: m.ProjectsPage })));
 const AnalyticsPage = lazy(() => import('../features/analytics/pages/AnalyticsPage').then(m => ({ default: m.AnalyticsPage })));
 const AICoachPage = lazy(() => import('../features/ai-coach/pages/AICoachPage').then(m => ({ default: m.AICoachPage })));
@@ -69,6 +72,14 @@ const router = createBrowserRouter([
         ),
       },
       {
+        path: ROUTES.ASSIGNMENTS,
+        element: (
+          <Shell>
+            <AssignmentsPage />
+          </Shell>
+        ),
+      },
+      {
         path: ROUTES.PLANNER,
         element: (
           <Shell>
@@ -105,6 +116,22 @@ const router = createBrowserRouter([
         element: (
           <Shell>
             <StudyHubPage />
+          </Shell>
+        ),
+      },
+      {
+        path: ROUTES.FOCUS_WORKSPACE,
+        element: (
+          <Shell>
+            <FocusWorkspacePage />
+          </Shell>
+        ),
+      },
+      {
+        path: ROUTES.SUBJECT_WORKSPACE,
+        element: (
+          <Shell>
+            <SubjectWorkspacePage />
           </Shell>
         ),
       },

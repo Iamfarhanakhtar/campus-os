@@ -1,28 +1,35 @@
 # CampusOS Product Roadmap
 
-## Phase 0: Foundation & Architecture (Current)
-- [x] Project Scaffolding with React, TypeScript, Vite, Tailwind CSS
-- [x] Strict Feature-First Directory Architecture
-- [x] Design System Tokens & Primitive UI Components
-- [x] Responsive Dashboard Shell with Header & Collapsible Sidebar
-- [x] Theme Engine (Dark / Light / System) with `#09090B` default
-- [x] Centralized Routes (`src/constants/routes.ts`) & Command Palette (`⌘K`)
-- [x] Full TypeScript Database Models & SQL Schema Scripts
-- [x] Comprehensive Markdown Documentation Suite
+## Version 1.0 ✅
+- [x] Dashboard
+- [x] Timetable
+- [x] Attendance
+- [x] Subjects
 
-## Phase 1: Core Academic Engine
-- [ ] Interactive Timetable Builder with clash detection
-- [ ] Attendance logger with "Can I skip class?" calculator
-- [ ] Academic Calendar with Google Calendar / iCal sync
-- [ ] Subject & Syllabus Manager with weighted grade calculators
+## Version 1.1 ✅
+- [x] Study Hub
+- [x] Focus Session Engine
+- [x] Study Workspace
+- [x] CampusOS Intelligence
 
-## Phase 2: AI Intelligence & Growth Suite
-- [ ] AI Academic Coach (LLM Chat context-aware of enrolled courses)
-- [ ] AI Study Hub (Pomodoro Timer, ambient audio, automatic flashcard generator)
-- [ ] Project Workspace with GitHub API commit sync
-- [ ] Goal tracking & target GPA simulator
+## Version 1.2 ✅
+- [x] Core Productivity Complete
 
-## Phase 3: Mobile & Enterprise Scale
-- [ ] React Native Mobile App & Offline PWA Sync
-- [ ] Real-time Supabase WebSockets collaboration
-- [ ] Multi-university syllabus import parsers (PDF / Canvas / Blackboard)
+## Version 1.3 (Active Development)
+- [ ] CampusOS AI Coach (Context-aware AI across the platform)
+
+## Version 1.4
+- [ ] Analytics & Productivity Insights
+
+## Version 2.0
+- [ ] Authentication
+- [ ] Supabase
+- [ ] Cloud Sync
+- [ ] Real AI
+
+## Version 2.1
+- [ ] Knowledge Base
+- [ ] Notes Hub
+- [ ] Assignment Intelligence
+- [ ] Document Intelligence
+- [ ] Semantic Search

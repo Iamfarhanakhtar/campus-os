@@ -13,11 +13,14 @@ import {
   Search,
 } from 'lucide-react';
 
+import { useNotifications } from '../../features/notifications/context/NotificationContext';
+
 export const Header: React.FC = () => {
   const { toggleSidebar } = useSidebarContext();
   const { student } = useAuth();
   const { theme, setTheme } = useThemeContext();
   const { currentTimeStr } = useCurrentTime();
+  const { togglePanel, unreadCount, criticalCount } = useNotifications();
 
   const formattedLiveClock = TimetableService.formatTime12(currentTimeStr);
   const toggleTheme = () => setTheme(theme === 'dark' ? 'light' : 'dark');
@@ -78,13 +81,21 @@ export const Header: React.FC = () => {
           )}
         </button>
 
-        {/* Notifications Button */}
+        {/* Notifications Button with Bell Badge */}
         <button
-          className="relative rounded-xl p-2 text-zinc-400 hover:bg-zinc-800 hover:text-white transition-colors"
+          onClick={togglePanel}
+          className="relative rounded-xl p-2 text-zinc-400 hover:bg-zinc-800 hover:text-white transition-colors flex items-center gap-1.5 font-mono text-xs"
           aria-label="Notifications"
         >
-          <Bell className="h-4 w-4" />
-          <span className="absolute top-1.5 right-1.5 h-2 w-2 rounded-full bg-[#7C5CFC]" />
+          <Bell className="h-4 w-4 text-zinc-300" />
+          {unreadCount > 0 && (
+            <span className="px-1.5 py-0.5 rounded-full bg-[#7C5CFC] text-white text-[10px] font-bold flex items-center gap-1">
+              {unreadCount}
+              {criticalCount > 0 && (
+                <span className="h-1.5 w-1.5 rounded-full bg-rose-400 animate-ping" />
+              )}
+            </span>
+          )}
         </button>
 
         {/* Student Avatar */}

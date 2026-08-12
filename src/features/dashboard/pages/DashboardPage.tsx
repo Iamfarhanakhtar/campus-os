@@ -17,6 +17,8 @@ import { TimetableService } from '../../../services/TimetableService';
 import { useNavigate } from 'react-router-dom';
 import { ROUTES } from '../../../constants/routes';
 
+import { MorningBriefingHero } from '../../ai-coach/components/MorningBriefingHero';
+
 export const DashboardPage: React.FC = () => {
   const navigate = useNavigate();
   const { student, academicPreferences } = useAuth();
@@ -45,7 +47,7 @@ export const DashboardPage: React.FC = () => {
   const tomorrowSummary = getSummaryForDay(tomorrowDay);
 
   // Urgent assignment filter
-  const urgentAssignment = assignments.find((a) => a.priority === 'high' || a.priority === 'urgent');
+  const urgentAssignment = assignments.find((a) => a.status !== 'submitted' && a.status !== 'graded');
   const upcomingExam = exams.length > 0 ? exams[0] : undefined;
 
   const currentOrNextLecture = currentLecture || nextLecture || (todayLectures.length > 0 ? todayLectures[0] : undefined);
@@ -55,6 +57,12 @@ export const DashboardPage: React.FC = () => {
 
   return (
     <div className="space-y-6">
+      {/* 0. Proactive Morning AI Briefing Banner */}
+      <MorningBriefingHero
+        userName={student.full_name.split(' ')[0] || 'Farhan'}
+        onStartFocusSession={() => navigate(ROUTES.FOCUS_WORKSPACE)}
+      />
+
       {/* 1. Greeting */}
       <GreetingSection
         studentName={student.full_name}

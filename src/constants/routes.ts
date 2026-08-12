@@ -12,12 +12,15 @@ export const ROUTES = {
   DASHBOARD: '/',
   TIMETABLE: '/timetable',
   ATTENDANCE: '/attendance',
+  ASSIGNMENTS: '/assignments',
   SUBJECTS: '/subjects',
   CALENDAR: '/calendar',
   PLANNER: '/planner',
 
   // Growth & Projects
   STUDY_HUB: '/study-hub',
+  FOCUS_WORKSPACE: '/study-hub/workspace',
+  SUBJECT_WORKSPACE: '/study/:subjectId',
   GOALS: '/goals',
   PROJECTS: '/projects',
 
@@ -30,5 +33,9 @@ export const ROUTES = {
   SETTINGS: '/settings',
   PROFILE: '/profile',
 } as const;
+
+export function getSubjectStudyRoute(subjectIdOrCode: string): string {
+  return `/study/${encodeURIComponent(subjectIdOrCode.toLowerCase())}`;
+}
 
 export type AppRoute = (typeof ROUTES)[keyof typeof ROUTES];
