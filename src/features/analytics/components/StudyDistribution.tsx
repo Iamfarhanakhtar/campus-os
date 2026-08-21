@@ -1,13 +1,15 @@
 import React from 'react';
 import { Card, CardContent } from '../../../components/ui/Card';
 import { StudyShareDistribution } from '../types/analytics.types';
-import { PieChart } from 'lucide-react';
+import { PieChart, Clock } from 'lucide-react';
 
 export interface StudyDistributionProps {
   distribution: StudyShareDistribution[];
 }
 
 export const StudyDistribution: React.FC<StudyDistributionProps> = ({ distribution }) => {
+  const hasActiveShare = distribution && distribution.some((d) => d.percentage > 0);
+
   return (
     <Card glass className="border-zinc-800 bg-zinc-900/90 p-5 space-y-4 shadow-xl font-mono text-xs">
       <CardContent className="p-0 space-y-3">
@@ -18,30 +20,40 @@ export const StudyDistribution: React.FC<StudyDistributionProps> = ({ distributi
           <span className="text-[10px] text-zinc-500 font-bold">Relative Share %</span>
         </div>
 
-        {/* Stacked Percentage Bar */}
-        <div className="h-4 w-full bg-zinc-950 rounded-xl overflow-hidden flex p-0.5 border border-zinc-800">
-          {distribution.map((item, idx) => (
-            <div
-              key={idx}
-              className={`h-full ${item.color} first:rounded-l-lg last:rounded-r-lg transition-all`}
-              style={{ width: `${item.percentage}%` }}
-              title={`${item.subjectName}: ${item.percentage}%`}
-            />
-          ))}
-        </div>
-
-        {/* Legend Grid */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 gap-2.5 pt-1">
-          {distribution.map((item, idx) => (
-            <div key={idx} className="p-2 rounded-xl bg-zinc-950 border border-zinc-800 flex items-center justify-between">
-              <span className="flex items-center gap-1.5 min-w-0">
-                <span className={`h-2.5 w-2.5 rounded-full ${item.color} shrink-0`} />
-                <span className="truncate text-zinc-300 text-[11px]">{item.subjectName}</span>
-              </span>
-              <strong className="text-white text-xs shrink-0 font-bold">{item.percentage}%</strong>
+        {!hasActiveShare ? (
+          <div className="p-6 text-center rounded-xl bg-zinc-950/60 border border-zinc-800/80 space-y-2 text-zinc-400">
+            <Clock className="h-6 w-6 text-zinc-600 mx-auto" />
+            <p className="text-xs font-bold text-zinc-300">No focus activity recorded for this period.</p>
+            <p className="text-[10px] text-zinc-500">Log focus sessions in Study Hub to see relative subject share allocation.</p>
+          </div>
+        ) : (
+          <>
+            {/* Stacked Percentage Bar */}
+            <div className="h-4 w-full bg-zinc-950 rounded-xl overflow-hidden flex p-0.5 border border-zinc-800">
+              {distribution.map((item, idx) => (
+                <div
+                  key={idx}
+                  className={`h-full ${item.color} first:rounded-l-lg last:rounded-r-lg transition-all`}
+                  style={{ width: `${item.percentage}%` }}
+                  title={`${item.subjectName}: ${item.percentage}%`}
+                />
+              ))}
             </div>
-          ))}
-        </div>
+
+            {/* Legend Grid */}
+            <div className="grid grid-cols-2 sm:grid-cols-3 gap-2.5 pt-1">
+              {distribution.map((item, idx) => (
+                <div key={idx} className="p-2 rounded-xl bg-zinc-950 border border-zinc-800 flex items-center justify-between">
+                  <span className="flex items-center gap-1.5 min-w-0">
+                    <span className={`h-2.5 w-2.5 rounded-full ${item.color} shrink-0`} />
+                    <span className="truncate text-zinc-300 text-[11px]">{item.subjectName}</span>
+                  </span>
+                  <strong className="text-white text-xs shrink-0 font-bold">{item.percentage}%</strong>
+                </div>
+              ))}
+            </div>
+          </>
+        )}
       </CardContent>
     </Card>
   );

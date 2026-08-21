@@ -17,7 +17,9 @@ export class AnalyticsEngineService {
   }
 
   public static getSubjectRankings() {
-    return MOCK_SUBJECT_RANKINGS.sort((a, b) => b.aiRatingPct - a.aiRatingPct);
+    return MOCK_SUBJECT_RANKINGS.sort(
+      (a, b) => (b.performanceScore || 0) - (a.performanceScore || 0)
+    );
   }
 
   public static getStudyDistribution() {

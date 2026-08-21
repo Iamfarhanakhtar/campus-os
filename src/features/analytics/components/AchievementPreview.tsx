@@ -1,13 +1,16 @@
 import React from 'react';
 import { Card, CardContent } from '../../../components/ui/Card';
 import { AchievementBadge } from '../types/analytics.types';
+import { MOCK_ACHIEVEMENT_BADGES } from '../data/analytics.mock';
 import { Award, ShieldCheck } from 'lucide-react';
 
 export interface AchievementPreviewProps {
-  badges: AchievementBadge[];
+  badges?: AchievementBadge[];
 }
 
 export const AchievementPreview: React.FC<AchievementPreviewProps> = ({ badges }) => {
+  const displayBadges = badges && badges.length > 0 ? badges : MOCK_ACHIEVEMENT_BADGES;
+
   return (
     <Card glass className="border-zinc-800 bg-zinc-900/90 p-5 space-y-3 shadow-xl font-mono text-xs">
       <CardContent className="p-0 space-y-3">
@@ -16,12 +19,12 @@ export const AchievementPreview: React.FC<AchievementPreviewProps> = ({ badges }
             <Award className="h-3.5 w-3.5 text-amber-400" /> Academic Achievements & Badges
           </h4>
           <span className="text-[10px] text-emerald-400 font-bold bg-emerald-500/10 px-2 py-0.5 rounded border border-emerald-500/30">
-            4 Badges Unlocked
+            {displayBadges.length} Badges Unlocked
           </span>
         </div>
 
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5">
-          {badges.map((badge) => (
+          {displayBadges.map((badge) => (
             <div
               key={badge.id}
               className="p-3 rounded-2xl bg-zinc-950 border border-zinc-800 space-y-1 hover:border-[#7C5CFC]/40 transition-all text-center"

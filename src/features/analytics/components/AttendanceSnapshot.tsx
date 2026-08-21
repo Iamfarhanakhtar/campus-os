@@ -4,8 +4,17 @@ import { useNavigate } from 'react-router-dom';
 import { ROUTES } from '../../../constants/routes';
 import { ShieldCheck, ArrowRight, Calendar } from 'lucide-react';
 
-export const AttendanceSnapshot: React.FC = () => {
+export interface AttendanceSnapshotProps {
+  attendancePct: number | null;
+  riskLevel: string;
+}
+
+export const AttendanceSnapshot: React.FC<AttendanceSnapshotProps> = ({
+  attendancePct,
+  riskLevel,
+}) => {
   const navigate = useNavigate();
+  const hasAttendanceData = attendancePct !== null;
 
   return (
     <Card
@@ -25,12 +34,18 @@ export const AttendanceSnapshot: React.FC = () => {
 
         <div className="flex items-center justify-between">
           <div>
-            <p className="text-[10px] text-zinc-400 uppercase font-bold">Overall Status</p>
-            <h3 className="text-2xl font-black text-emerald-400">91% Safe</h3>
+            <p className="text-[10px] text-zinc-400 uppercase font-bold">Semester Attendance</p>
+            <h3 className={`text-2xl font-black ${hasAttendanceData ? 'text-emerald-400' : 'text-zinc-400'}`}>
+              {hasAttendanceData ? `${attendancePct}%` : 'No data'} {hasAttendanceData ? riskLevel : ''}
+            </h3>
           </div>
           <div className="text-right">
-            <span className="text-xs font-bold text-emerald-400 bg-emerald-500/10 px-2.5 py-1 rounded border border-emerald-500/30">
-              Can Miss 2 Lectures
+            <span className={`text-xs font-bold px-2.5 py-1 rounded border ${
+              hasAttendanceData
+                ? (attendancePct >= 75 ? 'bg-emerald-500/10 text-emerald-400 border-emerald-500/30' : 'bg-rose-500/10 text-rose-400 border-rose-500/30')
+                : 'bg-zinc-800 text-zinc-400 border-zinc-700'
+            }`}>
+              {hasAttendanceData ? (attendancePct >= 75 ? 'Safe (>75% Target)' : 'Below Target') : 'No Telemetry'}
             </span>
           </div>
         </div>
